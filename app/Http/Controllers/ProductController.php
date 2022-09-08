@@ -76,7 +76,7 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $product = Product::find($id);
-        if($product->product_image != ''  && $product->product_image != null){
+        if($product->product_image != ''  && $product->product_image != null&&$request->product_image){
             Storage::disk('public')->delete($product->product_image);
             $imageName = time().'.'.$request->product_image->extension();
 
